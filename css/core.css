@@ -1,0 +1,163 @@
+/* ========================================
+   CSS Custom Properties (Design Tokens)
+   ======================================== */
+
+:root {
+    /*--- Colour Tokens ---*/
+    --background: hsl(230 45% 7%);
+    --foreground: hsl(40 30% 92%);
+    --card: hsl(230 38% 11%);
+    --card-channels: 230 38% 11%;
+    --card-foreground: hsl(40 30% 92%);
+    --popover: hsl(230 40% 9%);
+
+    --primary: hsl(42 88% 62%);
+    --primary-foreground: hsl(230 50% 8%);
+    --secondary: hsl(220 55% 28%);
+    --muted: hsl(230 25% 16%);
+    --muted-foreground: hsl(40 12% 68%);
+    --accent: hsl(28 90% 58%);
+    --destructive: hsl(0 70% 55%);
+
+    --border: hsl(230 30% 18%);
+    --border-channels: 230 30% 18%;
+    --input: hsl(230 30% 16%);
+    --ring: hsl(42 88% 62%);
+
+    /*--- Gradients ---*/
+
+    /*---custom personal tokens ---*/
+    --night-deep: hsl(232 50% 5%);
+    --night-mid: hsl(230 45% 10%);
+    --night-elev: hsl(230 38% 14%);
+    --gold: hsl(42 90% 62%);
+    --gold-soft: hsl(40 75% 72%);
+    --moon: hsl(48 95% 78%);
+    --ember: hsl(22 90% 58%);
+    --twilight: hsl(248 45% 22%);
+
+    /*--- Typography ---*/
+    --cinzel: "Cinzel";
+    --inter: "inter";
+
+    --h1-sm: 3rem;
+    --h1-md: 3.75rem;
+    --h1-lg: 4.5rem;
+
+    --h2-mobile: 2.25rem;
+    --h2-pc: 3rem;
+
+    --h3: 1.25rem;
+    --h4: 1.125rem;
+
+    /*
+        -- Hero h1 ---
+        mobile: 3rem
+        tablet: 3.75rem
+        pc: 4.5rem
+
+        --- section h2 ---
+        mobile: 2.25rem
+        pc: 3rem
+
+        --- h3 - card title ---
+        all: 1.25rem
+
+        --- h4 ---
+        all: 1.125
+
+        --- others ---
+        lead paragraph: 1.125rem
+        body: 1rem
+        small/ meta : 0.875rem
+        Eyebrow : 0.3em
+        footer/micro: 0.875 / 0.9rem
+
+
+    */
+
+    /*--- breakpoints ---*/
+
+    --mobile: 640px;
+    --tablet: 768px;
+    --pc: 1024px;
+    --pc-xl: 1280px;
+    --pc-2xl: 1400px; /* that is the cap */
+
+    /*--- animation ---*/
+    --twinkle: 2.5s ease-in-out infinte; /* 2.5 - 5.5 */
+    --float-slow: 8s ease-in-out infinite;
+    --drift: 20s alternate;
+    --glow-pulse: 4s ease-in-out infinite;
+    --rise: 0.9s --transition-magic once;
+    /*--- easing token ---*/
+    --transition-magic: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* ========================================
+   General Page Layout
+   ======================================== */
+
+header,
+main,
+footer {
+    display: grid;
+    grid-template-columns: 1fr min(80%, var(--pc-2xl)) 1fr;
+}
+.wrapper {
+    grid-column: 2/3;
+}
+
+/* ========================================
+   Site General Design
+   ======================================== */
+
+body {
+    background-color: var(--background);
+    color: var(--muted-foreground);
+    font-family: var(--inter);
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--cinzel);
+    color: var(--foreground);
+    text-transform: uppercase;
+}
+h1 {
+    font-size: var(--h1-sm);
+}
+h2 {
+    font-size: var(--h2-mobile);
+}
+h3 {
+    font-size: var(--h3);
+}
+h4 {
+    font-size: var(--h4);
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+.glass {
+    /* used for floating nav and any panel that should sit over the starfield.*/
+
+    background: hsl(var(--card-channels) / 0.55);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid hsl(var(--border-channels) / 0.7);
+}
+.text-gold {
+    color: var(--gold);
+}
+.text-muted {
+    color: var(--muted);
+}
