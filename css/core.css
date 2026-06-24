@@ -6,6 +6,7 @@
     /*--- Colour Tokens ---*/
     --background: hsl(230 45% 7%);
     --foreground: hsl(40 30% 92%);
+    --foreground-channels: 40 30% 92%;
     --card: hsl(230 38% 11%);
     --card-channels: 230 38% 11%;
     --card-foreground: hsl(40 30% 92%);
@@ -28,13 +29,17 @@
 
     /*---custom personal tokens ---*/
     --night-deep: hsl(232 50% 5%);
+    --night-deep-channels: 232 50% 5%;
     --night-mid: hsl(230 45% 10%);
+    --night-mid-channels: 230 45% 10%;
     --night-elev: hsl(230 38% 14%);
     --gold: hsl(42 90% 62%);
+    --gold-channels: 42 90% 62%;
     --gold-soft: hsl(40 75% 72%);
     --moon: hsl(48 95% 78%);
     --ember: hsl(22 90% 58%);
     --twilight: hsl(248 45% 22%);
+    --twilight-channels: 248 45% 22%;
 
     /*--- Typography ---*/
     --cinzel: "Cinzel";
@@ -118,9 +123,18 @@ footer {
    ======================================== */
 
 body {
-    background-color: var(--background);
+    min-height: 100svh;
     color: var(--muted-foreground);
     font-family: var(--inter);
+
+    background-color: hsl(var(--night-deep-channels));
+    background-image: radial-gradient(
+        ellipse at top,
+        hsl(var(--twilight-channels)) 0%,
+        hsl(var(--night-mid-channels)) 50%,
+        hsl(var(--night-deep-channels)) 100%
+    );
+    background-attachment: fixed;
 }
 
 h1,
@@ -142,8 +156,22 @@ h3 {
 h4 {
     font-size: var(--h4);
 }
+button {
+    border: 0;
+    padding: 0.9rem 1.6rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--gold), var(--ember));
+    color: hsl(230 50% 8%);
+    font-weight: 600;
+    box-shadow: 0 0 60px hsl(var(--gold-channels) / 0.35);
+}
+
+.logo {
+    font-family: var(--cinzel);
+    font-weight: 800;
+}
 img {
-   width: 250px;
+    width: 250px;
 }
 
 /* ========================================
@@ -163,4 +191,542 @@ img {
 }
 .text-muted {
     color: var(--muted);
+}
+
+/* ========================================
+   Stars creation and animation
+   ======================================== */
+
+.starfield {
+    position: absolute; /* or `fixed` for a full-viewport sky */
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    will-change: transform; /* primed for parallax */
+}
+
+.star {
+    position: absolute;
+    width: 1.5px;
+    height: 1.5px;
+    border-radius: 9999px;
+    background: var(--foreground);
+    box-shadow: 0 0 4px hsl(var(--foreground-channels) / 0.4);
+    opacity: 0.9;
+    animation: twinkle 3.5s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+/* ---------- Twinkle keyframes ---------- */
+@keyframes twinkle {
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+/* ============================================================
+   Per-star placement, size, color, and timing.
+   Every ~3rd star is "gold" with a warmer glow.
+   Sizes range 0.5px → 2.5px. Delays 0s → 4s. Durations 2.5s → 5.5s.
+   ============================================================ */
+
+.star:nth-child(1) {
+    top: 4%;
+    left: 7%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 0.2s;
+    animation-duration: 3.2s;
+}
+.star:nth-child(2) {
+    top: 9%;
+    left: 22%;
+    width: 0.5px;
+    height: 0.5px;
+    animation-delay: 1.4s;
+    animation-duration: 4.7s;
+}
+.star:nth-child(3) {
+    top: 6%;
+    left: 41%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 0.9s;
+    animation-duration: 2.8s;
+}
+.star:nth-child(4) {
+    top: 12%;
+    left: 58%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 2.3s;
+    animation-duration: 5.1s;
+}
+.star:nth-child(5) {
+    top: 3%;
+    left: 73%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 0s;
+    animation-duration: 3.9s;
+}
+.star:nth-child(6) {
+    top: 8%;
+    left: 88%;
+    width: 2.5px;
+    height: 2.5px;
+    animation-delay: 1.1s;
+    animation-duration: 4.4s;
+}
+.star:nth-child(7) {
+    top: 17%;
+    left: 3%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 3s;
+    animation-duration: 2.6s;
+}
+.star:nth-child(8) {
+    top: 15%;
+    left: 15%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 0.6s;
+    animation-duration: 5.5s;
+}
+.star:nth-child(9) {
+    top: 20%;
+    left: 31%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 1.8s;
+    animation-duration: 3.4s;
+}
+.star:nth-child(10) {
+    top: 18%;
+    left: 49%;
+    width: 0.5px;
+    height: 0.5px;
+    animation-delay: 2.7s;
+    animation-duration: 4s;
+}
+.star:nth-child(11) {
+    top: 22%;
+    left: 66%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 0.4s;
+    animation-duration: 3.1s;
+}
+.star:nth-child(12) {
+    top: 14%;
+    left: 81%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 1.6s;
+    animation-duration: 4.8s;
+}
+.star:nth-child(13) {
+    top: 27%;
+    left: 9%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 2.1s;
+    animation-duration: 2.9s;
+}
+.star:nth-child(14) {
+    top: 31%;
+    left: 24%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 3.4s;
+    animation-duration: 3.7s;
+}
+.star:nth-child(15) {
+    top: 29%;
+    left: 42%;
+    width: 2.5px;
+    height: 2.5px;
+    animation-delay: 0.8s;
+    animation-duration: 5.2s;
+}
+.star:nth-child(16) {
+    top: 34%;
+    left: 55%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 1.3s;
+    animation-duration: 2.7s;
+}
+.star:nth-child(17) {
+    top: 26%;
+    left: 70%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 2.5s;
+    animation-duration: 4.2s;
+}
+.star:nth-child(18) {
+    top: 33%;
+    left: 86%;
+    width: 0.5px;
+    height: 0.5px;
+    animation-delay: 0.1s;
+    animation-duration: 5s;
+}
+.star:nth-child(19) {
+    top: 39%;
+    left: 5%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 1.9s;
+    animation-duration: 3.3s;
+}
+.star:nth-child(20) {
+    top: 42%;
+    left: 19%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 2.8s;
+    animation-duration: 4.5s;
+}
+.star:nth-child(21) {
+    top: 37%;
+    left: 36%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 0.5s;
+    animation-duration: 2.5s;
+}
+.star:nth-child(22) {
+    top: 44%;
+    left: 52%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 3.7s;
+    animation-duration: 5.4s;
+}
+.star:nth-child(23) {
+    top: 40%;
+    left: 68%;
+    width: 2.5px;
+    height: 2.5px;
+    animation-delay: 1s;
+    animation-duration: 3s;
+}
+.star:nth-child(24) {
+    top: 46%;
+    left: 83%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 2.2s;
+    animation-duration: 4.6s;
+}
+.star:nth-child(25) {
+    top: 51%;
+    left: 11%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 0.7s;
+    animation-duration: 3.5s;
+}
+.star:nth-child(26) {
+    top: 49%;
+    left: 27%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 1.5s;
+    animation-duration: 2.8s;
+}
+.star:nth-child(27) {
+    top: 54%;
+    left: 44%;
+    width: 0.5px;
+    height: 0.5px;
+    animation-delay: 3.1s;
+    animation-duration: 5.3s;
+}
+.star:nth-child(28) {
+    top: 47%;
+    left: 60%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 0.3s;
+    animation-duration: 4.1s;
+}
+.star:nth-child(29) {
+    top: 56%;
+    left: 76%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 2.6s;
+    animation-duration: 3.6s;
+}
+.star:nth-child(30) {
+    top: 52%;
+    left: 91%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 1.2s;
+    animation-duration: 4.9s;
+}
+.star:nth-child(31) {
+    top: 61%;
+    left: 6%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 3.3s;
+    animation-duration: 2.6s;
+}
+.star:nth-child(32) {
+    top: 64%;
+    left: 21%;
+    width: 2.5px;
+    height: 2.5px;
+    animation-delay: 0.4s;
+    animation-duration: 5.1s;
+}
+.star:nth-child(33) {
+    top: 59%;
+    left: 38%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 1.7s;
+    animation-duration: 3.2s;
+}
+.star:nth-child(34) {
+    top: 66%;
+    left: 53%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 2.9s;
+    animation-duration: 4.3s;
+}
+.star:nth-child(35) {
+    top: 62%;
+    left: 69%;
+    width: 0.5px;
+    height: 0.5px;
+    animation-delay: 0.9s;
+    animation-duration: 3.8s;
+}
+.star:nth-child(36) {
+    top: 68%;
+    left: 84%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 2s;
+    animation-duration: 2.5s;
+}
+.star:nth-child(37) {
+    top: 73%;
+    left: 13%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 3.5s;
+    animation-duration: 5.5s;
+}
+.star:nth-child(38) {
+    top: 71%;
+    left: 29%;
+    width: 2.5px;
+    height: 2.5px;
+    animation-delay: 0.6s;
+    animation-duration: 3.4s;
+}
+.star:nth-child(39) {
+    top: 76%;
+    left: 46%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 1.4s;
+    animation-duration: 4.7s;
+}
+.star:nth-child(40) {
+    top: 70%;
+    left: 62%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 2.4s;
+    animation-duration: 2.9s;
+}
+.star:nth-child(41) {
+    top: 78%;
+    left: 78%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 0.2s;
+    animation-duration: 4s;
+}
+.star:nth-child(42) {
+    top: 74%;
+    left: 93%;
+    width: 0.5px;
+    height: 0.5px;
+    animation-delay: 1.8s;
+    animation-duration: 5.2s;
+}
+.star:nth-child(43) {
+    top: 83%;
+    left: 8%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 3s;
+    animation-duration: 3.1s;
+}
+.star:nth-child(44) {
+    top: 86%;
+    left: 23%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 0.5s;
+    animation-duration: 4.4s;
+}
+.star:nth-child(45) {
+    top: 81%;
+    left: 40%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 1.6s;
+    animation-duration: 2.7s;
+}
+.star:nth-child(46) {
+    top: 88%;
+    left: 56%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 2.7s;
+    animation-duration: 5s;
+}
+.star:nth-child(47) {
+    top: 84%;
+    left: 72%;
+    width: 2.5px;
+    height: 2.5px;
+    animation-delay: 0.8s;
+    animation-duration: 3.6s;
+}
+.star:nth-child(48) {
+    top: 90%;
+    left: 87%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 2.1s;
+    animation-duration: 4.5s;
+}
+.star:nth-child(49) {
+    top: 94%;
+    left: 17%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 3.2s;
+    animation-duration: 3.3s;
+}
+.star:nth-child(50) {
+    top: 96%;
+    left: 34%;
+    width: 0.5px;
+    height: 0.5px;
+    animation-delay: 0s;
+    animation-duration: 4.8s;
+}
+.star:nth-child(51) {
+    top: 92%;
+    left: 50%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 1.1s;
+    animation-duration: 2.6s;
+}
+.star:nth-child(52) {
+    top: 97%;
+    left: 65%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 2.3s;
+    animation-duration: 5.4s;
+}
+.star:nth-child(53) {
+    top: 93%;
+    left: 80%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 3.6s;
+    animation-duration: 3.9s;
+}
+.star:nth-child(54) {
+    top: 98%;
+    left: 95%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 0.7s;
+    animation-duration: 4.2s;
+}
+.star:nth-child(55) {
+    top: 11%;
+    left: 97%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 1.9s;
+    animation-duration: 2.8s;
+}
+.star:nth-child(56) {
+    top: 24%;
+    left: 99%;
+    width: 0.5px;
+    height: 0.5px;
+    animation-delay: 2.5s;
+    animation-duration: 5.1s;
+}
+.star:nth-child(57) {
+    top: 36%;
+    left: 1%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 3.8s;
+    animation-duration: 3s;
+}
+.star:nth-child(58) {
+    top: 58%;
+    left: 2%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 0.3s;
+    animation-duration: 4.6s;
+}
+.star:nth-child(59) {
+    top: 79%;
+    left: 99%;
+    width: 2.5px;
+    height: 2.5px;
+    animation-delay: 1.3s;
+    animation-duration: 3.7s;
+}
+.star:nth-child(60) {
+    top: 45%;
+    left: 30%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 2.8s;
+    animation-duration: 5.3s;
+}
+
+/* ---------- Gold stars (warm accent — every 3rd) ---------- */
+.star:nth-child(3n) {
+    background: var(--gold-soft);
+    box-shadow: 0 0 6px hsl(var(--gold-channels) / 0.7);
+}
+
+/* ---------- Accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .star {
+        animation: none;
+        opacity: 0.7;
+    }
 }
