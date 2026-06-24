@@ -170,9 +170,6 @@ button {
     font-family: var(--cinzel);
     font-weight: 800;
 }
-img {
-    width: 250px;
-}
 
 /* ========================================
    Utility Classes
