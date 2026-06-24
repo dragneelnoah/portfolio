@@ -175,6 +175,7 @@ header .wrapper {
     grid-column: 1/4;
     margin-inline: 1rem;
 }
+
 /* ========================================
    Site General Design
    ======================================== */
@@ -229,12 +230,12 @@ button {
     display: flex;
     gap: 4px;
     align-items: center;
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 
 nav a {
     display: inline-block;
-    margin-inline: 0.8rem;
+    margin-inline: 0.7rem;
 }
 
 .theme-toggle {
@@ -394,6 +395,18 @@ a:hover {
     gap: var(--gap-6);
 }
 
+.story-img {
+    height: 100px;
+    overflow: clip;
+
+    & img {
+        height: 100%;
+        object-position: 0% 69%;
+        filter: brightness(45%);
+        /*opacity: 0.3;*/
+    }
+}
+
 .time-line {
     position: relative;
     padding: 2rem;
@@ -455,7 +468,7 @@ ul {
 .used-skills {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--gap-3);
+    gap: var(--gap-2);
     justify-content: flex-start;
     margin-top: var(--mg-xs);
     & > * {
