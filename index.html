@@ -43,14 +43,14 @@
                         <path d="M4 17v2"></path>
                         <path d="M5 18H3"></path>
                     </svg>
-                    Noah Thony
+                    <span>Noah</span>
                 </a>
                 <nav>
                     <a href="#">work</a>
                     <a href="#">about</a>
                     <a href="#">contact</a>
                 </nav>
-                <button>
+                <button class="theme-toggle">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -85,15 +85,16 @@
                             warm light, careful craft.
                         </p>
                         <div class="btn-group">
-                            <button>
+                            <button class="gold-glow-feint">
                                 View projects
                                 <i class="fa-solid fa-angles-right"></i>
                             </button>
-                            <button>Contact</button>
+                            <button class="btn-transparent">Contact</button>
                         </div>
                     </div>
                     <div class="hero">
                         <img
+                            class="gold-glow-strong"
                             src="css/assets/hero-dq8.jpg"
                             alt="A cloaked traveler on a moonlit cliff overlooking a distant castle, framed by golden constellations"
                         />
@@ -135,9 +136,16 @@
                 <!--Projects-->
                 <section id="work">
                     <div class="wrapper">
-                        <div>
-                            <p>chapter I</p>
-                            <h2>Selected quests</h2>
+                        <div class="section-title">
+                            <div>
+                                <p class="text-gold-soft">chapter I</p>
+                                <h2>Selected quests</h2>
+                            </div>
+
+                            <p>
+                                A handful of side-quests and shipped projects —
+                                each one a small spell, made with care.
+                            </p>
                         </div>
 
                         <div class="projects-wrapper">
@@ -208,14 +216,14 @@
                 </section>
 
                 <!--about me-->
-                <section id="story">
+                <section id="story" class="py-28">
                     <div class="wrapper">
-                        <div class="">
+                        <div class="story">
                             <div>
-                                <p>chapter II</p>
+                                <p class="text-gold">chapter II</p>
                                 <h2>The wanderer</h2>
                             </div>
-                            <p>
+                            <p class="mt-6">
                                 I taught myself to code at the kitchen table
                                 with a JRPG soundtrack looping in the
                                 background. Five years later, I still build like
@@ -223,7 +231,7 @@
                                 I care about typography, soft shadows, and
                                 interfaces that feel like a friend.
                             </p>
-                            <div class="used-skills">
+                            <div class="used-skills-golden mt-8">
                                 <span>TypeScript</span>
                                 <span>React</span>
                                 <span>Next.js</span>
@@ -235,7 +243,7 @@
                                 <span>Three.js</span>
                                 <span>SQL</span>
                             </div>
-                            <button class="btn-cta">
+                            <button class="btn-cta mt-8">
                                 <i class="fa-regular fa-file-pdf"></i>
                                 Check my CV
                             </button>
@@ -243,29 +251,41 @@
                         <div class="time-line">
                             <ul>
                                 <li>
-                                    <p>2021</p>
-                                    <p>
+                                    <span class="bullet">
+                                        <span></span>
+                                    </span>
+                                    <p class="text-gold">2021</p>
+                                    <p class="mt-2">
                                         Wrote my first line of HTML on a
                                         borrowed laptop
                                     </p>
                                 </li>
                                 <li>
-                                    <p class="year">2022</p>
-                                    <p>
+                                    <span class="bullet">
+                                        <span></span>
+                                    </span>
+                                    <p class="text-gold">2022</p>
+                                    <p class="mt-2">
                                         Shipped a small productivity tool — 200
                                         happy users.
                                     </p>
                                 </li>
                                 <li>
-                                    <p class="year">2024</p>
-                                    <p>
+                                    <span class="bullet">
+                                        <span></span>
+                                    </span>
+                                    <p class="text-gold">2024</p>
+                                    <p class="mt-2">
                                         Open-sourced Wayfarer UI. Joined a tiny
                                         indie studio.
                                     </p>
                                 </li>
                                 <li>
-                                    <p class="year">2026</p>
-                                    <p>
+                                    <span class="bullet">
+                                        <span></span>
+                                    </span>
+                                    <p class="text-gold">2026</p>
+                                    <p class="mt-2">
                                         Building tools that feel a little bit
                                         magical.
                                     </p>
@@ -276,11 +296,11 @@
                 </section>
 
                 <!--Contact-->
-                <section id="contact">
+                <section id="contact" class="center">
                     <div>
                         <p>
-                            let's Create a new
-                            <span class="text-gold">chapter</span>
+                            let's Create
+                            <span class="text-gold">a new chapter</span>
                         </p>
                         <h2>send a letter</h2>
                         <p>
