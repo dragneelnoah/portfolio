@@ -10,9 +10,10 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap"
             rel="stylesheet"
         />
+
         <!--font awesome script -->
         <script
             src="https://kit.fontawesome.com/6f641eb0df.js"
@@ -25,8 +26,8 @@
                 <a href="index.html" class="logo">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
+                        width="20"
+                        height="20"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -308,16 +309,16 @@
                             let's Create
                             <span class="text-gold">a new chapter</span>
                         </p>
-                        <h2>send a letter</h2>
-                        <p>
-                            working on something whimsical? I'd love to hear
-                            about it.
+                        <h2 class="mt-2">Send a Letter</h2>
+                        <p class="mt-4">
+                            working on something whimsical? <br />
+                            I'd love to hear about it.
                         </p>
                     </div>
 
-                    <form action="blank">
-                        <div>
-                            <input type="text" placeholder="Your Name..." />
+                    <form action="blank" class="mt-10">
+                        <div class="form-input-wrapper">
+                            <input type="text" placeholder="Your name..." />
                             <input
                                 type="email"
                                 placeholder="you@somewhere.world"
@@ -329,20 +330,19 @@
                             cols="32"
                             id=""
                             placeholder="Tell me your story"
+                            class="mt-4"
                         ></textarea>
-                        <button class="btn-cta" type="submit">
-                            Send Message
-                        </button>
+                        <button class="mt-4" type="submit">Send Message</button>
                     </form>
-                    <div class="social-icons">
+                    <div class="social-icon-wrapper mt-10">
                         <a href="mailto:noah@gmail.com">
-                            <i class="fa-solid fa-envelope"></i>
+                            <i class="social-icon fa-solid fa-envelope"></i>
                         </a>
                         <a href="https://github.com/dragneelnoah">
-                            <i class="fa-brands fa-github"></i>
+                            <i class="social-icon fa-brands fa-github"></i>
                         </a>
                         <a href="https://x.com">
-                            <i class="fa-brands fa-x-twitter"></i>
+                            <i class="social-icon fa-brands fa-x-twitter"></i>
                         </a>
                     </div>
                 </section>
@@ -351,7 +351,9 @@
 
         <footer>
             <div class="wrapper">
-                <p>✦ Crafted by candlelight · &copy;2026, Dragneel Noah</p>
+                <p class="center">
+                    ✦ Crafted by candlelight · &copy;2026, Noah ✦
+                </p>
             </div>
         </footer>
     </body>

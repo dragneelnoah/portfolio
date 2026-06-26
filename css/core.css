@@ -69,8 +69,12 @@
     --twilight-channels: 248 45% 22%;
 
     /*--- Typography ---*/
-    --cinzel: "Cinzel";
-    --inter: "inter";
+    --font-title-fancy: "Cinzel Decorative", serif;
+    --font-title: "Cinzel", serif;
+    /*--font-title: "Cormorant", serif;*/
+    --font-body: "Inter", sans-serif;
+
+    --social-icon: 1.5rem;
 
     --h1-sm: 3rem;
     --h1-md: 3.75rem;
@@ -149,6 +153,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 /* ========================================
@@ -176,6 +181,12 @@ header .wrapper {
     margin-inline: 1rem;
 }
 
+footer .wrapper {
+    border-top: 1px solid var(--border);
+    margin-top: calc(0.25rem * 24);
+    padding: 1em 0.5em;
+}
+
 /* ========================================
    Site General Design
    ======================================== */
@@ -183,7 +194,7 @@ header .wrapper {
 body {
     min-height: 100svh;
     color: var(--muted-foreground);
-    font-family: var(--inter);
+    font-family: var(--font-body);
 
     background-color: hsl(var(--night-deep-channels));
     background-image: radial-gradient(
@@ -198,12 +209,13 @@ body {
 h1,
 h2,
 h3 {
-    font-family: var(--cinzel);
+    font-family: var(--font-title);
     color: var(--foreground);
     text-transform: uppercase;
 }
 h1 {
     font-size: var(--h1-sm);
+    font-family: var(--font-title-fancy);
 }
 h2 {
     font-size: var(--h2-mobile);
@@ -222,15 +234,31 @@ button {
     color: hsl(230 50% 8%);
     font-weight: 600;
 }
+input,
+textarea {
+    background-color: var(--background);
+    width: 100%;
+    padding: 1em 1.5em;
+    color: var(--muted-foreground);
+    font-size: 1rem;
+    border-radius: 0.75rem;
+    border-color: var(--border);
+}
+button[type="submit"] {
+    width: 100%;
+}
 
 .logo {
-    font-family: var(--cinzel);
+    font-family: var(--font-title-fancy);
     font-weight: 800;
     color: var(--gold-soft);
     display: flex;
     gap: 4px;
     align-items: center;
     font-size: 1rem;
+    /*&:nth-child(1) {
+        display: inline-block;
+    }*/
 }
 
 nav a {
@@ -402,7 +430,7 @@ a:hover {
     & img {
         height: 100%;
         object-position: 0% 69%;
-        filter: brightness(45%);
+        filter: brightness(55%);
         /*opacity: 0.3;*/
     }
 }
@@ -416,7 +444,7 @@ a:hover {
         line-height: 1.25rem;
     }
     & .text-gold {
-        font-family: var(--cinzel);
+        font-family: var(--font-title);
         font-weight: bolder;
     }
 }
@@ -500,6 +528,34 @@ ul {
     }
 }
 
+.form-input-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap-4);
+}
+
+.social-icon-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+    padding: 1em;
+    margin-bottom: var(--margin-small);
+    & .social-icon {
+        text-decoration: none;
+        padding: 0.5em;
+        color: var(--foreground);
+        font-size: var(--social-icon);
+        border: 1px solid;
+        border-radius: 999px;
+        border-color: var(--border);
+    }
+    & .social-icon:hover {
+        color: var(--gold);
+        border-color: var(--gold);
+    }
+}
+
 .mt-1 {
     margin-top: 0.25rem;
 }
@@ -520,6 +576,12 @@ ul {
 }
 .mt-8 {
     margin-top: 2rem;
+}
+.mt-9 {
+    margin-top: calc(0.25rem * 9);
+}
+.mt-10 {
+    margin-top: calc(0.25rem * 10);
 }
 
 .py-28 {
