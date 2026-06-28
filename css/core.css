@@ -213,7 +213,7 @@ header .wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em 2em;
+    padding: 1em;
     margin: var(--spacing-1);
     border-radius: var(--pill);
     grid-column: 1/4;
