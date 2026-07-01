@@ -1,0 +1,1214 @@
+/* ========================================
+   CSS Custom Properties (Design Tokens)
+   ======================================== */
+
+:root {
+    /*--- Colour Tokens ---*/
+    --background: hsl(230 45% 7%);
+    --foreground: hsl(40 30% 92%);
+    --foreground-channels: 40 30% 92%;
+    --card: hsl(230 38% 11%);
+    --card-channels: 230 38% 11%;
+    --card-foreground: hsl(40 30% 92%);
+    --popover: hsl(230 40% 9%);
+
+    --primary: hsl(42 88% 62%);
+    --primary-channels: 42 88% 62%;
+    --primary-foreground: hsl(230 50% 8%);
+    --secondary: hsl(220 55% 28%);
+    --muted: hsl(230 25% 16%);
+    --muted-foreground: hsl(40 12% 68%);
+    --accent: hsl(28 90% 58%);
+    --destructive: hsl(0 70% 55%);
+
+    --border: hsl(230 30% 18%);
+    --border-channels: 230 30% 18%;
+    --input: hsl(230 30% 16%);
+    --ring: hsl(42 88% 62%);
+
+    /*--- Gradients ---*/
+    --gradient-night: radial-gradient(
+        ellipse at top,
+        hsl(248 50% 18%) 0%,
+        hsl(230 50% 8%) 50%,
+        hsl(232 55% 4%) 100%
+    );
+    --gradient-aurora: linear-gradient(
+        135deg,
+        hsl(248 50% 20% / 0.6),
+        hsl(220 55% 25% / 0.4),
+        hsl(42 90% 62% / 0.15)
+    );
+    --gradient-gold: linear-gradient(135deg, hsl(42 90% 62%), hsl(28 90% 58%));
+    --gradient-fade: linear-gradient(
+        180deg,
+        hsl(230 50% 8% / 0) 0%,
+        hsl(230 50% 7% / 0.6) 60%,
+        hsl(232 55% 5%) 100%
+    );
+    --shadow-glow:
+        0 0 60px hsl(42 90% 62% / 0.25), 0 0 120px hsl(42 90% 62% / 0.1);
+    --shadow-elev:
+        0 20px 60px -20px hsl(232 80% 2% / 0.8),
+        0 8px 24px -8px hsl(232 80% 2% / 0.6);
+    --shadow-card: 0 10px 30px -12px hsl(232 80% 2% / 0.7);
+
+    /*---custom personal tokens ---*/
+    --night-deep: hsl(232 50% 5%);
+    --night-deep-channels: 232 50% 5%;
+    --night-mid: hsl(230 45% 10%);
+    --night-mid-channels: 230 45% 10%;
+    --night-elev: hsl(230 38% 14%);
+    --gold: hsl(42 90% 62%);
+    --gold-channels: 42 90% 62%;
+    --gold-soft: hsl(40 75% 72%);
+    --gold-soft-channels: 40 75% 72%;
+    --moon: hsl(48 95% 78%);
+    --ember: hsl(22 90% 58%);
+    --twilight: hsl(248 45% 22%);
+    --twilight-channels: 248 45% 22%;
+
+    /*--- Typography ---*/
+    --font-title-fancy: "Cinzel Decorative", serif;
+    --font-title: "Cinzel", serif;
+    /*--font-title: "Cormorant", serif;*/
+    --font-body: "Inter", sans-serif;
+
+    --social-icon-size: 1.5rem;
+
+    /*---border shape---*/
+    --pill: 999px;
+    --round: 1rem;
+    --round-top: 1rem 1rem 0 0;
+
+    /*--- different displays size handling for font ---*/
+    --h1: clamp(3rem, 2.35rem + 1.6vw, 4.5rem);
+    --h2: clamp(2.25rem, 1.95rem + 0.9vw, 3rem);
+    --h3: clamp(1.25rem, 1.15rem + 0.2vw, 1.5rem);
+    --h4: clamp(1.125rem, 1.05rem + 0.12vw, 1.25rem);
+    --body: clamp(1rem, 0.98rem + 0.12vw, 1.0925rem);
+    --body-sm: clamp(0.7rem, 0.6rem + 0.12vw, 1.0725rem);
+
+    /* REFACTOR: --h1-{sm,md,lg} could be a single --h1 with clamp() */
+    /*--h1-sm: 3rem;
+    --h1-md: 3.75rem;
+    --h1-lg: 4.5rem;*/
+
+    /* REFACTOR: --h2-{mobile,pc} could be a single --h2 with clamp() */
+    /*--h2-mobile: 2.25rem;
+    --h2-pc: 3rem;
+
+    --h3: 1.25rem;
+    --h4: 1.125rem;*/
+
+    /* ========================================================
+    ===========================================================
+        -- Hero h1 ---
+        mobile: 3rem
+        tablet: 3.75rem
+        pc: 4.5rem
+
+        --- section h2 ---
+        mobile: 2.25rem
+        pc: 3rem
+
+        --- h3 - card title ---
+        all: 1.25rem
+
+        --- h4 ---
+        all: 1.125
+
+        --- others ---
+        lead paragraph: 1.125rem
+        body: 1rem
+        small/ meta : 0.875rem
+        Eyebrow : 0.3em
+        footer/micro: 0.875 / 0.9rem
+
+
+        --- parts to refactor (redundant code)---
+
+
+
+    ===========================================================
+    ==========================================================*/
+
+    /*--- breakpoints ---*/
+
+    --mobile: 640px;
+    --tablet: 768px;
+    --pc: 1024px;
+    --pc-xl: 1280px;
+    --pc-2xl: 1400px; /* that is the cap */
+
+    /*--- spacing ---*/
+
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 0.75rem;
+    --spacing-4: 1rem;
+    --spacing-5: 1.25rem;
+    --spacing-6: 1.5rem;
+    --spacing-7: 1.75rem;
+    --spacing-8: 2rem;
+    --spacing-9: 2.25rem;
+    --spacing-10: 2.5rem;
+
+    /* REFACTOR: --gap-{1..6} forms a linear scale (0.25rem steps). Could generate via loop. */
+    --gap-1: 0.25rem;
+    --gap-2: 0.5rem;
+    --gap-3: 0.75rem;
+    --gap-4: 1rem;
+    --gap-5: 1.25rem;
+    --gap-6: 1.5rem;
+
+    /* REFACTOR: --mt-{4..8} duplicates the .mt-{N} utility classes below. Pick one system. */
+    --mt-4: 1rem;
+    --mt-5: 1.25rem;
+    --mt-6: 1.5rem;
+    --mt-7: 1.75rem;
+    --mt-8: 2rem;
+
+    /* REFACTOR: --mg-{xs..xl} forms a geometric scale (1, 2, 4, 8, 16rem). Could generate. */
+    --mg-xs: 1rem;
+    --mg-sm: 2rem;
+    --mg-md: 4rem;
+    --mg-lg: 8rem;
+    --mg-xl: 16rem;
+
+    /*--- animation ---*/
+    --twinkle: 2.5s ease-in-out infinte; /* 2.5 - 5.5 */
+    --float-slow: 8s ease-in-out infinite;
+    --drift: 20s alternate;
+    --glow-pulse: 4s ease-in-out infinite;
+    --rise: 0.9s --transition-magic once;
+    /*--- easing token ---*/
+    --transition-magic: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   General Page Layout
+   ======================================== */
+
+header,
+main,
+footer {
+    display: grid;
+    grid-template-columns: 1fr min(80%, var(--pc-2xl)) 1fr;
+}
+.wrapper {
+    grid-column: 2/3;
+}
+footer {
+    position: relative;
+}
+
+header .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    margin: var(--spacing-1);
+    border-radius: var(--pill);
+    grid-column: 1/4;
+    max-width: var(--pc-2xl);
+}
+
+footer .wrapper {
+    border-top: 1px solid var(--border);
+    margin-top: calc(0.25rem * 24);
+    padding: 1em 0.5em;
+}
+
+/* ========================================
+   Site General Design
+   ======================================== */
+
+body {
+    min-height: 100svh;
+    color: var(--muted-foreground);
+    font-family: var(--font-body);
+    font-size: var(--body);
+
+    background-color: hsl(var(--night-deep-channels));
+    background-image: radial-gradient(
+        ellipse at top,
+        var(--twilight) 0%,
+        var(--night-mid) 50%,
+        var(--night-deep) 100%
+    );
+    background-attachment: fixed;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-title);
+    color: var(--foreground);
+    text-transform: uppercase;
+}
+h1 {
+    font-size: var(--h1);
+    font-family: var(--font-title-fancy);
+}
+h2 {
+    font-size: var(--h2);
+}
+h3 {
+    font-size: var(--h3);
+}
+h4 {
+    font-size: var(--h4);
+}
+button {
+    border: 0;
+    padding: 0.9rem 1.6rem;
+    border-radius: var(--pill);
+    background: linear-gradient(135deg, var(--gold), var(--ember));
+    color: hsl(230 50% 8%);
+    font-weight: 600;
+}
+input,
+textarea {
+    resize: block;
+    background-color: var(--background);
+    width: 100%;
+    padding: 1em 1.5em;
+    color: var(--muted-foreground);
+    font-size: 1rem;
+    border-radius: var(--round);
+    border-color: var(--border);
+}
+
+button[type="submit"] {
+    width: 100%;
+}
+
+.logo {
+    font-family: var(--font-title-fancy);
+    font-weight: 800;
+    color: var(--gold-soft);
+    display: flex;
+    gap: var(--spacing-2);
+    align-items: center;
+    font-size: var(--body);
+}
+
+nav a {
+    display: inline-block;
+    margin-inline: var(--spacing-2);
+}
+
+.theme-toggle {
+    /* reset */
+    appearance: none;
+    border: none;
+    cursor: pointer;
+
+    /* layout / sizing (shadcn "icon" size ≈ 40×40 px) */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem; /* 40px */
+    height: 2.5rem; /* 40px */
+    padding: 0.5rem; /* 8px */
+
+    /* appearance */
+    border-radius: 9999px;
+    /*background-color: transparent;*/
+    background: transparent;
+    color: var(--foreground);
+    transition:
+        background-color 200ms ease,
+        color 200ms ease;
+
+    /* focus ring using your existing --ring token */
+    outline: var(--ring);
+}
+
+.theme-toggle:hover {
+    background-color: hsl(var(--primary) / 0.1);
+    color: var(--primary);
+}
+
+.theme-toggle:focus-visible {
+    box-shadow:
+        0 0 0 2px var(--background),
+        0 0 0 4px var(--primary);
+}
+
+.theme-toggle svg {
+    width: 1.25rem; /* 20px */
+    height: 1.25rem;
+    stroke-width: 1.5;
+    pointer-events: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+    color: var(--foreground);
+    text-transform: capitalize;
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+/*--- banner section ---*/
+
+#banner {
+    padding-block: var(--mg-md);
+
+    & p,
+    & .btn-group {
+        margin-top: var(--mg-sm);
+    }
+}
+
+.hero {
+    position: relative;
+    padding: var(--mg-md);
+
+    & img {
+        border: 1px solid var(--gold);
+        border-radius: var(--mg-sm);
+    }
+}
+/* REFACTOR: .hero::before and .hero::after — both pseudo-elements share
+   content:"", position:absolute, pointer-events:none. Could dry up with a
+   shared mixin or a single ::after with multiple backgrounds. */
+/* aurora wash */
+/*.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        hsl(248 50% 20% / 0.6),
+        hsl(220 55% 25% / 0.4),
+        hsl(var(--gold) / 0.15)
+    );
+    opacity: 0.7;
+    pointer-events: none;
+}*/
+
+/* bottom fade */
+/*.hero::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 50%;
+    background: linear-gradient(
+        180deg,
+        hsl(230 50% 8% / 0) 0%,
+        hsl(230 50% 7% / 0.6) 60%,
+        hsl(var(--night-deep)) 100%
+    );
+    pointer-events: none;
+}*/
+
+/*--- project section ---*/
+
+.section-title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--spacing-8);
+    margin-bottom: var(--mg-md);
+}
+
+.projects-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-6);
+}
+.project {
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: var(--mg-xs);
+    grid-column: 1;
+    background-color: var(--card);
+    & .presentation {
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        border-radius: var(--round-top);
+        & img {
+            object-position: 0 10%;
+        }
+    }
+    & .body {
+        padding: var(--spacing-7);
+
+        & p {
+            margin-top: var(--spacing-4);
+        }
+    }
+}
+
+#story .wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap-6);
+}
+
+.section-img {
+    height: clamp(100px, 20vw, 200px);
+    overflow: clip;
+    & img {
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.story-img {
+    object-position: 0% 69%;
+    filter: brightness(40%) saturate(140%);
+}
+.contact-img {
+    object-position: 0% 70%;
+    filter: brightness(60%);
+}
+.footer-img {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    bottom: -3rem;
+    grid-column: 1/4;
+
+    & img {
+        object-position: 0% 65%;
+        filter: brightness(80%);
+    }
+}
+
+.time-line {
+    position: relative;
+    padding: 2rem;
+    border-left: 1px solid hsl(var(--primary-channels) / 0.4);
+    & li {
+        margin-top: 1.5rem;
+        line-height: 1.25rem;
+    }
+    & .text-gold {
+        font-family: var(--font-title);
+        font-weight: bolder;
+    }
+}
+ul {
+    list-style: none;
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+.glass {
+    /* used for floating nav and any panel that should sit over the starfield.*/
+
+    background: hsl(var(--card-channels) / 0.55);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid hsl(var(--border-channels) / 0.7);
+}
+
+.text-gold {
+    color: var(--gold);
+}
+.text-muted {
+    color: var(--muted);
+}
+.text-gold-soft {
+    color: var(--gold-soft);
+}
+.btn-group {
+    display: flex;
+    gap: var(--mg-sm);
+}
+
+.btn-transparent {
+    background: none;
+    color: var(--foreground);
+    border: 1px solid var(--gold-soft);
+}
+.btn-transparent:hover {
+    background-color: hsl(var(--gold-soft-channels) / 0.2);
+    color: var(--gold);
+}
+
+.gold-glow-feint {
+    box-shadow: 0 0 60px hsl(var(--gold-channels) / 0.35);
+}
+.gold-glow-strong {
+    box-shadow: 0 0 80px hsl(var(--gold-channels) / 0.4);
+}
+
+.skills-pill {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+    justify-content: flex-start;
+    margin-top: var(--spacing-4);
+    & > * {
+        padding: 0.5em 1em;
+        font-size: var(--body-sm);
+        letter-spacing: 0.025em;
+        text-transform: capitalize;
+        border-radius: var(--pill);
+    }
+}
+.skills-plain {
+    & > * {
+        border: 1px solid var(--border);
+    }
+}
+
+.skills-golden {
+    & > * {
+        background-color: hsl(var(--primary-channels) / 0.05);
+        color: var(--gold-soft);
+        border: 1px solid hsl(var(--primary-channels) / 0.2);
+    }
+}
+
+.form-input-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap-4);
+}
+
+.social-icon-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+    padding: 1em;
+    margin-bottom: var(--margin-small);
+    & .social-icon {
+        text-decoration: none;
+        padding: 0.5em;
+        color: var(--foreground);
+        font-size: var(--social-icon-size);
+        border: 1px solid;
+        border-radius: 999px;
+        border-color: var(--border);
+    }
+    & .social-icon:hover {
+        color: var(--gold);
+        border-color: var(--gold);
+    }
+}
+
+/* REFACTOR FOR LATER: .mt-{1..10} — all are margin-top: calc(0.25rem * N). Some use literal values,
+   some use calc(). Unify as calc(0.25rem * N) everywhere, or extract into a single
+   utility that takes a custom property (e.g. style="--level: 4"). */
+.mt-1 {
+    margin-top: 0.25rem;
+}
+.mt-2 {
+    margin-top: 0.5rem;
+}
+.mt-3 {
+    margin-top: 0.75rem;
+}
+.mt-4 {
+    margin-top: 1rem;
+}
+.mt-5 {
+    margin-top: 1.25rem;
+}
+.mt-6 {
+    margin-top: 1.5rem;
+}
+.mt-8 {
+    margin-top: 2rem;
+}
+.mt-9 {
+    margin-top: calc(0.25rem * 9);
+}
+.mt-10 {
+    margin-top: calc(0.25rem * 10);
+}
+
+.py-28 {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+}
+
+.bullet {
+    position: absolute;
+    left: -0.5rem;
+    height: 1rem;
+    width: 1rem;
+    border-color: hsl(var(--primary-channels) / 0.4);
+    border: 1px solid;
+    border-radius: var(--pill);
+    background-color: var(--background);
+    display: grid;
+    place-items: center;
+
+    & > * {
+        height: 0.375rem;
+        width: 0.375rem;
+        background-color: var(--primary);
+        border-radius: var(--pill);
+    }
+}
+
+.center {
+    text-align: center;
+}
+/* ========================================
+   Stars creation and animation
+   ======================================== */
+
+.starfield {
+    position: absolute; /* or `fixed` for a full-viewport sky */
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    will-change: transform; /* primed for parallax */
+}
+
+.star {
+    position: absolute;
+    width: 1.5px;
+    height: 1.5px;
+    border-radius: 9999px;
+    background: var(--foreground);
+    box-shadow: 0 0 4px hsl(var(--foreground-channels) / 0.4);
+    opacity: 0.9;
+    animation: twinkle 3.5s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+/* ---------- Twinkle keyframes ---------- */
+@keyframes twinkle {
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+/* ============================================================
+   Per-star placement, size, color, and timing.
+   Every ~3rd star is "gold" with a warmer glow.
+   Sizes range 0.5px → 2.5px. Delays 0s → 4s. Durations 2.5s → 5.5s.
+   ============================================================ */
+
+/* REFACTOR: .star:nth-child(1..60) — 60 nearly identical blocks that differ only in
+   top, left, width, height, animation-delay, animation-duration values.
+   Generate these with a preprocessor loop (Sass/PostCSS) or generate them via a
+   JS script that writes the CSS. Maintain the data in a JS/JSON array instead. */
+
+.star:nth-child(1) {
+    top: 4%;
+    left: 7%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 0.2s;
+    animation-duration: 3.2s;
+}
+.star:nth-child(2) {
+    top: 9%;
+    left: 22%;
+    width: 0.5px;
+    height: 0.5px;
+    animation-delay: 1.4s;
+    animation-duration: 4.7s;
+}
+.star:nth-child(3) {
+    top: 6%;
+    left: 41%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 0.9s;
+    animation-duration: 2.8s;
+}
+.star:nth-child(4) {
+    top: 12%;
+    left: 58%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 2.3s;
+    animation-duration: 5.1s;
+}
+.star:nth-child(5) {
+    top: 3%;
+    left: 73%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 0s;
+    animation-duration: 3.9s;
+}
+.star:nth-child(6) {
+    top: 8%;
+    left: 88%;
+    width: 2.5px;
+    height: 2.5px;
+    animation-delay: 1.1s;
+    animation-duration: 4.4s;
+}
+.star:nth-child(7) {
+    top: 17%;
+    left: 3%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 3s;
+    animation-duration: 2.6s;
+}
+.star:nth-child(8) {
+    top: 15%;
+    left: 15%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 0.6s;
+    animation-duration: 5.5s;
+}
+.star:nth-child(9) {
+    top: 20%;
+    left: 31%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 1.8s;
+    animation-duration: 3.4s;
+}
+.star:nth-child(10) {
+    top: 18%;
+    left: 49%;
+    width: 0.5px;
+    height: 0.5px;
+    animation-delay: 2.7s;
+    animation-duration: 4s;
+}
+.star:nth-child(11) {
+    top: 22%;
+    left: 66%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 0.4s;
+    animation-duration: 3.1s;
+}
+.star:nth-child(12) {
+    top: 14%;
+    left: 81%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 1.6s;
+    animation-duration: 4.8s;
+}
+.star:nth-child(13) {
+    top: 27%;
+    left: 9%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 2.1s;
+    animation-duration: 2.9s;
+}
+.star:nth-child(14) {
+    top: 31%;
+    left: 24%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 3.4s;
+    animation-duration: 3.7s;
+}
+.star:nth-child(15) {
+    top: 29%;
+    left: 42%;
+    width: 2.5px;
+    height: 2.5px;
+    animation-delay: 0.8s;
+    animation-duration: 5.2s;
+}
+.star:nth-child(16) {
+    top: 34%;
+    left: 55%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 1.3s;
+    animation-duration: 2.7s;
+}
+.star:nth-child(17) {
+    top: 26%;
+    left: 70%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 2.5s;
+    animation-duration: 4.2s;
+}
+.star:nth-child(18) {
+    top: 33%;
+    left: 86%;
+    width: 0.5px;
+    height: 0.5px;
+    animation-delay: 0.1s;
+    animation-duration: 5s;
+}
+.star:nth-child(19) {
+    top: 39%;
+    left: 5%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 1.9s;
+    animation-duration: 3.3s;
+}
+.star:nth-child(20) {
+    top: 42%;
+    left: 19%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 2.8s;
+    animation-duration: 4.5s;
+}
+.star:nth-child(21) {
+    top: 37%;
+    left: 36%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 0.5s;
+    animation-duration: 2.5s;
+}
+.star:nth-child(22) {
+    top: 44%;
+    left: 52%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 3.7s;
+    animation-duration: 5.4s;
+}
+.star:nth-child(23) {
+    top: 40%;
+    left: 68%;
+    width: 2.5px;
+    height: 2.5px;
+    animation-delay: 1s;
+    animation-duration: 3s;
+}
+.star:nth-child(24) {
+    top: 46%;
+    left: 83%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 2.2s;
+    animation-duration: 4.6s;
+}
+.star:nth-child(25) {
+    top: 51%;
+    left: 11%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 0.7s;
+    animation-duration: 3.5s;
+}
+.star:nth-child(26) {
+    top: 49%;
+    left: 27%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 1.5s;
+    animation-duration: 2.8s;
+}
+.star:nth-child(27) {
+    top: 54%;
+    left: 44%;
+    width: 0.5px;
+    height: 0.5px;
+    animation-delay: 3.1s;
+    animation-duration: 5.3s;
+}
+.star:nth-child(28) {
+    top: 47%;
+    left: 60%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 0.3s;
+    animation-duration: 4.1s;
+}
+.star:nth-child(29) {
+    top: 56%;
+    left: 76%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 2.6s;
+    animation-duration: 3.6s;
+}
+.star:nth-child(30) {
+    top: 52%;
+    left: 91%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 1.2s;
+    animation-duration: 4.9s;
+}
+.star:nth-child(31) {
+    top: 61%;
+    left: 6%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 3.3s;
+    animation-duration: 2.6s;
+}
+.star:nth-child(32) {
+    top: 64%;
+    left: 21%;
+    width: 2.5px;
+    height: 2.5px;
+    animation-delay: 0.4s;
+    animation-duration: 5.1s;
+}
+.star:nth-child(33) {
+    top: 59%;
+    left: 38%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 1.7s;
+    animation-duration: 3.2s;
+}
+.star:nth-child(34) {
+    top: 66%;
+    left: 53%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 2.9s;
+    animation-duration: 4.3s;
+}
+.star:nth-child(35) {
+    top: 62%;
+    left: 69%;
+    width: 0.5px;
+    height: 0.5px;
+    animation-delay: 0.9s;
+    animation-duration: 3.8s;
+}
+.star:nth-child(36) {
+    top: 68%;
+    left: 84%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 2s;
+    animation-duration: 2.5s;
+}
+.star:nth-child(37) {
+    top: 73%;
+    left: 13%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 3.5s;
+    animation-duration: 5.5s;
+}
+.star:nth-child(38) {
+    top: 71%;
+    left: 29%;
+    width: 2.5px;
+    height: 2.5px;
+    animation-delay: 0.6s;
+    animation-duration: 3.4s;
+}
+.star:nth-child(39) {
+    top: 76%;
+    left: 46%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 1.4s;
+    animation-duration: 4.7s;
+}
+.star:nth-child(40) {
+    top: 70%;
+    left: 62%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 2.4s;
+    animation-duration: 2.9s;
+}
+.star:nth-child(41) {
+    top: 78%;
+    left: 78%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 0.2s;
+    animation-duration: 4s;
+}
+.star:nth-child(42) {
+    top: 74%;
+    left: 93%;
+    width: 0.5px;
+    height: 0.5px;
+    animation-delay: 1.8s;
+    animation-duration: 5.2s;
+}
+.star:nth-child(43) {
+    top: 83%;
+    left: 8%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 3s;
+    animation-duration: 3.1s;
+}
+.star:nth-child(44) {
+    top: 86%;
+    left: 23%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 0.5s;
+    animation-duration: 4.4s;
+}
+.star:nth-child(45) {
+    top: 81%;
+    left: 40%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 1.6s;
+    animation-duration: 2.7s;
+}
+.star:nth-child(46) {
+    top: 88%;
+    left: 56%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 2.7s;
+    animation-duration: 5s;
+}
+.star:nth-child(47) {
+    top: 84%;
+    left: 72%;
+    width: 2.5px;
+    height: 2.5px;
+    animation-delay: 0.8s;
+    animation-duration: 3.6s;
+}
+.star:nth-child(48) {
+    top: 90%;
+    left: 87%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 2.1s;
+    animation-duration: 4.5s;
+}
+.star:nth-child(49) {
+    top: 94%;
+    left: 17%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 3.2s;
+    animation-duration: 3.3s;
+}
+.star:nth-child(50) {
+    top: 96%;
+    left: 34%;
+    width: 0.5px;
+    height: 0.5px;
+    animation-delay: 0s;
+    animation-duration: 4.8s;
+}
+.star:nth-child(51) {
+    top: 92%;
+    left: 50%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 1.1s;
+    animation-duration: 2.6s;
+}
+.star:nth-child(52) {
+    top: 97%;
+    left: 65%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 2.3s;
+    animation-duration: 5.4s;
+}
+.star:nth-child(53) {
+    top: 93%;
+    left: 80%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 3.6s;
+    animation-duration: 3.9s;
+}
+.star:nth-child(54) {
+    top: 98%;
+    left: 95%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 0.7s;
+    animation-duration: 4.2s;
+}
+.star:nth-child(55) {
+    top: 11%;
+    left: 97%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 1.9s;
+    animation-duration: 2.8s;
+}
+.star:nth-child(56) {
+    top: 24%;
+    left: 99%;
+    width: 0.5px;
+    height: 0.5px;
+    animation-delay: 2.5s;
+    animation-duration: 5.1s;
+}
+.star:nth-child(57) {
+    top: 36%;
+    left: 1%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 3.8s;
+    animation-duration: 3s;
+}
+.star:nth-child(58) {
+    top: 58%;
+    left: 2%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 0.3s;
+    animation-duration: 4.6s;
+}
+.star:nth-child(59) {
+    top: 79%;
+    left: 99%;
+    width: 2.5px;
+    height: 2.5px;
+    animation-delay: 1.3s;
+    animation-duration: 3.7s;
+}
+.star:nth-child(60) {
+    top: 45%;
+    left: 30%;
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 2.8s;
+    animation-duration: 5.3s;
+}
+
+/* ---------- Gold stars (warm accent — every 3rd) ---------- */
+.star:nth-child(3n) {
+    background: var(--gold-soft);
+    box-shadow: 0 0 6px hsl(var(--gold-channels) / 0.7);
+}
+
+/* ---------- Accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .star {
+        animation: none;
+        opacity: 0.7;
+    }
+}

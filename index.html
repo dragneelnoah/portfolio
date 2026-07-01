@@ -47,9 +47,9 @@
                     <span>Noah</span>
                 </a>
                 <nav>
-                    <a href="#">work</a>
-                    <a href="#">about</a>
-                    <a href="#">contact</a>
+                    <a href="#work">work</a>
+                    <a href="#story">about</a>
+                    <a href="#contact">contact</a>
                 </nav>
                 <button class="theme-toggle">
                     <svg
@@ -139,7 +139,7 @@
                     <div class="wrapper">
                         <div class="section-title">
                             <div>
-                                <p class="text-gold-soft">chapter I</p>
+                                <p class="text-gold-soft chapter">chapter I</p>
                                 <h2>Selected quests</h2>
                             </div>
 
@@ -220,17 +220,19 @@
                 <section id="story" class="py-28">
                     <div class="wrapper">
                         <div class="story">
-                            <div>
-                                <p class="text-gold">chapter II</p>
-                                <h2>The wanderer</h2>
+                            <div class="section-title">
+                                <div>
+                                    <p class="text-gold chapter">chapter II</p>
+                                    <h2>The wanderer</h2>
+                                    <p class="section-img">
+                                        <img
+                                            class="story-img"
+                                            src="css/assets/adventure_wood.jpg"
+                                            alt="light in a log in mystical forest at night"
+                                        />
+                                    </p>
+                                </div>
                             </div>
-                            <p class="section-img">
-                                <img
-                                    class="story-img"
-                                    src="css/assets/adventure_wood.jpg"
-                                    alt="light in a log in mystical forest at night"
-                                />
-                            </p>
                             <p class="mt-6">
                                 I taught myself to code at the kitchen table
                                 with a JRPG soundtrack looping in the
@@ -305,61 +307,85 @@
 
                 <!--Contact-->
                 <section id="contact" class="center">
-                    <div>
-                        <p>
-                            let's Create
-                            <span class="text-gold">a new chapter</span>
-                        </p>
-                        <h2 class="mt-2">Send a Letter</h2>
-                        <p class="section-img">
-                            <img
-                                class="contact-img"
-                                src="css/assets/aurora5.jpg"
-                                alt=""
-                            />
-                        </p>
-                        <p class="mt-4">
-                            working on something whimsical? <br />
-                            I'd love to hear about it.
-                        </p>
-                    </div>
-
-                    <form action="blank" class="mt-10">
-                        <div class="form-input-wrapper">
-                            <input type="text" placeholder="Your name..." />
-                            <input
-                                type="email"
-                                placeholder="you@somewhere.world"
-                            />
+                    <div class="contact-wrapper">
+                        <div>
+                            <p class="chapter">
+                                let's Create
+                                <span class="text-gold">a new chapter</span>
+                            </p>
+                            <h2 class="">Send a Letter</h2>
+                            <p class="section-img">
+                                <img
+                                    class="contact-img"
+                                    src="css/assets/aurora5.jpg"
+                                    alt=""
+                                />
+                            </p>
+                            <p class="mt-sm">
+                                working on something whimsical? I'd love to hear
+                                about it.
+                            </p>
                         </div>
-                        <textarea
-                            name="message"
-                            rows="5"
-                            cols="32"
-                            id=""
-                            placeholder="Tell me your story"
-                            class="mt-4"
-                        ></textarea>
-                        <button class="mt-4" type="submit">Send Message</button>
-                    </form>
-                    <div class="social-icon-wrapper mt-10">
-                        <a href="mailto:noahthonymhn@gmail.com">
-                            <i class="social-icon fa-solid fa-envelope"></i>
-                        </a>
-                        <a href="https://github.com/dragneelnoah">
-                            <i class="social-icon fa-brands fa-github"></i>
-                        </a>
-                        <a href="https://dragneelnoah.github.io/portfolio/">
-                            <i class="social-icon fa-solid fa-briefcase"></i>
-                        </a>
+
+                        <form action="blank" class="">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    placeholder="Your name..."
+                                    required
+                                />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    placeholder="you@somewhere.world"
+                                    required
+                                />
+                            </div>
+
+                            <div class="form-group span-all">
+                                <label for="description">Description:</label>
+                                <textarea
+                                    name="description"
+                                    rows="5"
+                                    cols="32"
+                                    id="description"
+                                    placeholder="Tell me your story"
+                                    class="mt-4"
+                                ></textarea>
+                            </div>
+
+                            <button class="span-all" type="submit">
+                                Send Message
+                            </button>
+                        </form>
+
+                        <div class="social-icon-wrapper mt-10">
+                            <a href="mailto:noahthonymhn@gmail.com">
+                                <i class="social-icon fa-solid fa-envelope"></i>
+                            </a>
+                            <a href="https://github.com/dragneelnoah">
+                                <i class="social-icon fa-brands fa-github"></i>
+                            </a>
+                            <a href="https://dragneelnoah.github.io/portfolio/">
+                                <i
+                                    class="social-icon fa-solid fa-briefcase"
+                                ></i>
+                            </a>
+                        </div>
                     </div>
                 </section>
             </div>
         </main>
 
         <footer>
-            <div class="wrapper">
-                <p class="center pt-10">
+            <div class="wrapper span-all">
+                <p class="copyright">
                     ✦ Crafted by candlelight · &copy;2026, Noah ✦
                 </p>
             </div>
